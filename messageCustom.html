@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نظام التعليقات المطور</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Cairo', sans-serif;
+            text-align: center;
+            background: #f4f6f9;
+            padding: 12px;
+            color: #333;
+        }
+        .comment-box {
+            background: #ffffff;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 6px 0px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: auto;
+        }
+        textarea {
+            width: 60%;
+            height: 80px; /* زيادة الحجم بشكل مناسب */
+            padding: 15px; /* زيادة المسافة الداخلية */
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            resize: none;
+            font-size: 16px;
+            background-color: #fafafa; /* خلفية ناعمة */
+            transition: all 0.3s ease; /* تأثير سلس */
+        }
+        textarea:focus {
+            outline: none;
+            border-color: #28a745; /* لون أخضر عند التركيز */
+            background-color: #ffffff; /* خلفية بيضاء عند التركيز */
+            box-shadow: 0 0 8px rgba(40, 167, 69, 0.5); /* تأثير ظل عند التركيز */
+        }
+        button {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 70%;
+            font-size: 16px;
+            transition: background 0.3s ease;
+            margin-top: 15px;
+        }
+        button:hover {
+            background: #218838;
+        }
+        .comments {
+            margin-top: 20px;
+            text-align: left;
+            max-width: 600px;
+            margin: auto;
+        }
+        .comment {
+            background: #ffffff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 8px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+        }
+        .comment .info {
+            font-size: 10px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="comment-box">
+        <h2>أضف تعليقك</h2>
+        <textarea id="commentInput" placeholder="قولي يا يويو اللي نفسك فيه هنا وانا كل 15 يوم هدخل  اشوف" "></textarea>
+        <button onclick="addComment()">إرسال</button>
+    </div>
+    <div class="comments" id="commentsSection"></div>
+    <script>
+        function addComment() {
+            let commentText = document.getElementById("commentInput").value.trim();
+            if (commentText === "") {
+                alert("لا يمكنك إرسال تعليق فارغ!");
+                return;
+            }
+            let comments = JSON.parse(localStorage.getItem("comments")) || [];
+            let timestamp = new Date().toLocaleString("ar-EG");
+            comments.push({ text: commentText, time: timestamp });
+            localStorage.setItem("comments", JSON.stringify(comments));
+            document.getElementById("commentInput").value = "";
+            displayComments();
+        }
+        function displayComments() {
+            let comments = JSON.parse(localStorage.getItem("comments")) || [];
+            let commentsSection = document.getElementById("commentsSection");
+            commentsSection.innerHTML = "";
+            comments.forEach(comment => {
+                let commentDiv = document.createElement("div");
+                commentDiv.className = "comment";
+                commentDiv.innerHTML = `
+                    <p>${comment.text}</p>
+                    <div class="info">(${comment.time})</div>
+                `;
+                commentsSection.appendChild(commentDiv);
+            });
+        }
+        window.onload = displayComments;
+    </script>
+</body>
+</html>
