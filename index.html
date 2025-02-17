@@ -1,143 +1,154 @@
-<!DOCTYPE html>  <html lang="ar">  
-<head>  
-    <meta charset="UTF-8">  
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <title>يويو</title>  
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">  
-    <style>  
-        body {  
-            font-family: 'Roboto', sans-serif;  
-            color: white;  
-            text-align: center;  
-            display: flex;  
-            justify-content: center;  
-            align-items: center;  
-            height: 100vh;  
-            margin: 0;  
-            overflow: hidden;  
-            background: linear-gradient(135deg, #3a8dff, #6a11cb, #00c6ff, #ff9a8b);  
-            background-size: 400% 400%;  
-            animation: gradientBG 15s ease infinite;  
-            font-size: 14px;  
-        }  @keyframes gradientBG {  
-        0% { background-position: 0% 50%; }  
-        50% { background-position: 100% 50%; }  
-        100% { background-position: 0% 50%; }  
-    }  
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>يويو</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: white;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            overflow-y: scroll;
+            background: linear-gradient(135deg, #ff9a8b, #00c6ff); /* الألوان المتداخلة */
+            height: 100%;
+        }
 
-    .options {  
-        background: rgba(0, 0, 0, 0.7);  
-        padding: 20px;  
-        border-radius: 20px;  
-        backdrop-filter: blur(20px);  
-        width: 90%;  
-        max-width: 400px;  
-        box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);  
-        display: grid;  
-        grid-template-columns: repeat(2, 1fr);  
-        gap: 15px;  
-        animation: fadeIn 1.5s ease-out;  
-        position: relative;  
-    }  
+        .container {
+            position: relative;
+            text-align: center;
+            padding-bottom: 50px;
+            min-height: 100vh; /* Ensure container takes up full height */
+        }
 
-    @keyframes fadeIn {  
-        0% { opacity: 0; transform: translateY(30px); }  
-        100% { opacity: 1; transform: translateY(0); }  
-    }  
+        .logo-container {
+            position: relative;
+            width: 250px;
+            height: 250px;
+            margin-bottom: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-    .logo {  
-        max-width: 150px;  
-        margin-bottom: 30px;  
-        animation: slideIn 1s ease-out;  
-        cursor: pointer;  
-        position: relative;  
-    }  
+        .logo {
+            width: 80%;
+            border-radius: 50%;
+            cursor: pointer;
+        }
 
-    @keyframes slideIn {  
-        0% { opacity: 0; transform: translateY(-30px); }  
-        100% { opacity: 1; transform: translateY(0); }  
-    }  
+        .message-box {
+            position: absolute;
+            top: 50%;
+            left: 80%; /* Move the box to the right of the logo */
+            margin-left: 20px; /* Add space between logo and message box */
+            width: 150px;
+            height: 100px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            font-size: 20px;
+            color: #330;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+            transform: translateY(-50%);
+        }
 
-    .heart {  
-        position: absolute;  
-        font-size: 24px;  
-        opacity: 1;  
-        animation: heartAnimation 1s ease-out forwards;  
-    }  
+        .options {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+            padding: 0 20px;
+        }
 
-    @keyframes heartAnimation {  
-        0% { transform: translateY(0) scale(1); opacity: 1; }  
-        100% { transform: translateY(-50px) scale(1.5); opacity: 0; }  
-    }  
+        .options button {
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: 600;
+            color: white;
+            background: linear-gradient(135deg, #ff9a8b, #00c6ff);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
 
-    .options button {  
-        padding: 10px 15px;  
-        font-size: 12px;  
-        font-weight: 600;  
-        color: white;  
-        background: linear-gradient(135deg, #ff9a8b, #00c6ff);  
-        border: none;  
-        border-radius: 50px;  
-        cursor: pointer;  
-        transition: all 0.4s ease;  
-        position: relative;  
-        overflow: hidden;  
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);  
-    }  
+        .options button:hover {
+            background: linear-gradient(135deg, #00c6ff, #ff9a8b);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
 
-    .options button:hover {  
-        background: linear-gradient(135deg, #00c6ff, #ff9a8b);  
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);  
-    }  
+        @media (max-width: 600px) {
+            .options {
+                grid-template-columns: 1fr 1fr;
+                padding: 10px;
+            }
+            .logo-container {
+                width: 200px;
+                height: 200px;
+            }
+            .logo {
+                width: 70%;
+            }
+            .options button {
+                font-size: 12px;
+                padding: 10px;
+            }
+        }
 
-    @media (max-width: 600px) {  
-        .options {  
-            width: 85%;  
-            padding: 15px;  
-        }  
-        .options button {  
-            font-size: 12px;  
-            padding: 10px 12px;  
-        }  
-        .logo {  
-            max-width: 130px;  
-        }  
-    }  
-</style>
+        footer {
+            position: fixed;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+            font-size: 12px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Logo -->
+        <div class="logo-container">
+            <img src="https://i.postimg.cc/y85QfzzK/Picsart-25-02-16-08-07-26-934.png" alt="Logo" class="logo" id="logo">
+            <div class="message-box">
+                <p>انا بحبك يا يويو🙂❤️</p>
+            </div>
+        </div>
 
-</head>  
-<body>  
-    <div class="options">  
-        <img src="https://i.postimg.cc/y85QfzzK/Picsart-25-02-16-08-07-26-934.png" alt="Logo" class="logo" onclick="showHearts(event)">  
-        <button onclick="window.location.href='message1.html'">وعد بالبقاء دائمًا معًا</button>  
-        <button onclick="window.location.href='message2.html'">أنت حياتي وروحي</button>  
-        <button onclick="window.location.href='message3.html'">وصف المشاعر العميقة تجاه يارا</button>  
-        <button onclick="window.location.href='message4.html'">كلام عن التقدير والامتنان ليارا</button>  
-        <button onclick="window.location.href='message5.html'">كلمة واحدة: بحبك</button>  
-        <button onclick="window.location.href='message6.html'">بحبك بكل اللغات والمشاعر</button>  
-        <button onclick="window.location.href='message7.html'">مشاعري التي لا أستطيع وصفها لكِ</button>  
-        <button onclick="window.location.href='message8.html'">يوم الفيلم والاعتراف بالحب</button>  
-        <button onclick="window.location.href='message9.html'">قصة بيجاد ويارا: الحب يولد من الصدف</button>  
-        <button onclick="window.location.href='message10.html'">الإحساس بالحب قبل المعرفة</button>  
-        <button onclick="window.location.href='message11.html'">حب قوي وعشق كبير</button>  
-        <button onclick="window.location.href='message12.html'">أنتِ حياتي كلها يا يويو</button>  
-        <button onclick="window.location.href='message13.html'">سنة مختلفة بسبب وجودك</button>  
-        <button onclick="window.location.href='message14.html'">لأجلك حتى في غيابي</button>  
-    </div>  
-    <script>  
-        function showHearts(event) {  
-            const colors = ['#00c6ff', '#ffeb3b'];  
-            for (let i = 0; i < 5; i++) {  
-                const heart = document.createElement('div');  
-                heart.classList.add('heart');  
-                heart.innerText = '❤️';  
-                heart.style.color = colors[Math.floor(Math.random() * colors.length)];  
-                heart.style.left = `${event.clientX - 10 + (Math.random() * 40 - 20)}px`;  
-                heart.style.top = `${event.clientY - 10 + (Math.random() * 40 - 20)}px`;  
-                document.body.appendChild(heart);  
-                setTimeout(() => heart.remove(), 1000);  
-            }  
-        }  
-    </script>  
-</body>  
+        <!-- Options buttons -->
+        <div class="options">
+            <button onclick="window.location.href='message1.html'">وعد بالبقاء دائمًا معًا</button>
+            <button onclick="window.location.href='message2.html'">أنت حياتي وروحي</button>
+            <button onclick="window.location.href='message3.html'">وصف المشاعر العميقة تجاه يارا</button>
+            <button onclick="window.location.href='message4.html'">كلام عن التقدير والامتنان ليارا</button>
+            <button onclick="window.location.href='message5.html'">كلمة واحدة: بحبك</button>
+            <button onclick="window.location.href='message6.html'">بحبك بكل اللغات والمشاعر</button>
+            <button onclick="window.location.href='message7.html'">مشاعري التي لا أستطيع وصفها لكِ</button>
+            <button onclick="window.location.href='message8.html'">يوم الفيلم والاعتراف بالحب</button>
+            <button onclick="window.location.href='message9.html'">قصة بيجاد ويارا: الحب يولد من الصدف</button>
+            <button onclick="window.location.href='message10.html'">الإحساس بالحب قبل المعرفة</button>
+            <button onclick="window.location.href='message11.html'">حب قوي وعشق كبير</button>
+            <button onclick="window.location.href='message12.html'">أنتِ حياتي كلها يا يويو</button>
+            <button onclick="window.location.href='message13.html'">سنة مختلفة بسبب وجودك</button>
+            <button onclick="window.location.href='message14.html'">لأجلك حتى في غيابي</button>
+            <button onclick="window.location.href='17-2.html'">17-2</button>
+            <!-- آخر 5 أزرار تم تعديلها إلى "Coming Soon" -->
+            <button>24-2</button>
+            <button>28-2</button>
+            <button>1-4</button>
+            <button>8-4</button>
+            <button>15-4</button>
+        </div>
+    </div>
+
+</body>
 </html>
