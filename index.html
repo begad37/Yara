@@ -15,7 +15,7 @@
             align-items: center;
             margin: 0;
             overflow-y: scroll;
-            background: linear-gradient(135deg, #ff9a8b, #00c6ff); /* الألوان المتداخلة */
+            background: linear-gradient(135deg, #ff9a8b, #00c6ff);
             height: 100%;
         }
 
@@ -23,7 +23,7 @@
             position: relative;
             text-align: center;
             padding-bottom: 50px;
-            min-height: 100vh; /* Ensure container takes up full height */
+            min-height: 100vh;
         }
 
         .logo-container {
@@ -42,21 +42,27 @@
             cursor: pointer;
         }
 
-        .message-box {
+        .yoyo-button {
             position: absolute;
             top: 50%;
-            left: 80%; /* Move the box to the right of the logo */
-            margin-left: 20px; /* Add space between logo and message box */
-            width: 150px;
-            height: 100px;
-            background-color: rgba(255, 255, 255, 0.7);
-            border-radius: 15px;
-            padding: 25px;
-            text-align: High;
-            font-size: 12px;
-            color: #000;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+            left: 100%;
             transform: translateY(-50%);
+            width: 180px;
+            height: 120px;
+            background: linear-gradient(135deg, #ff9a8b, #00c6ff);
+            border: none;
+            border-radius: 15px;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .yoyo-button:hover {
+            background: linear-gradient(135deg, #00c6ff, #ff9a8b);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
         }
 
         .options {
@@ -116,15 +122,11 @@
 </head>
 <body>
     <div class="container">
-        <!-- Logo -->
         <div class="logo-container">
             <img src="https://i.postimg.cc/y85QfzzK/Picsart-25-02-16-08-07-26-934.png" alt="Logo" class="logo" id="logo">
-            <div class="message-box">
-                <p>صباح الخير يا يويو الموقع الحمدلله اشتغل عرفت اسبلك رسالة انهارده وأن شاء الله هبقي اعزمك علي الشاورما ❤️</p>
-            </div>
+            <button class="yoyo-button" onclick="window.location.href='message.html'">دوسي هنا يا يويو</button>
         </div>
 
-        <!-- Options buttons -->
         <div class="options">
             <button onclick="window.location.href='message1.html'">وعد بالبقاء دائمًا معًا</button>
             <button onclick="window.location.href='message2.html'">أنت حياتي وروحي</button>
@@ -141,7 +143,6 @@
             <button onclick="window.location.href='message13.html'">سنة مختلفة بسبب وجودك</button>
             <button onclick="window.location.href='message14.html'">لأجلك حتى في غيابي</button>
             <button onclick="window.location.href='17-2.html'">17-2</button>
-            <!-- آخر 5 أزرار تم تعديلها إلى "Coming Soon" -->
             <button onclick="window.location.href='message2-24.html'">24-2</button>
             <button>28-2</button>
             <button>1-4</button>
@@ -149,6 +150,5 @@
             <button>15-4</button>
         </div>
     </div>
-
 </body>
 </html>
