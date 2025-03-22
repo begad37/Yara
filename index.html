@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>صفحة مميزة</title>
+    <title>Yara❤️</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -14,12 +14,13 @@
 
         body {
             font-family: 'Roboto', sans-serif;
-            color: #8B7500;
+            color: #8B7500; /* لون النص قريب من الذهبي الغامق */
             text-align: center;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            overflow-y: auto;
             background: linear-gradient(45deg, #ffffff, #FFF9C4);
             background-size: 200% 200%;
             animation: backgroundAnimation 1.5s infinite alternate;
@@ -31,62 +32,122 @@
         }
 
         .container {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             width: 90%;
-            max-width: 400px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            max-width: 600px;
+            padding: 20px;
+            min-height: 100vh;
         }
 
-        h1 {
-            font-size: 24px;
-            margin-bottom: 20px;
-            color: #8B7500;
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .logo {
+            width: 200px;
+            border-radius: 50%;
         }
 
         .buttons {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 10px;
         }
 
-        .buttons button {
-            width: 100%;
-            padding: 15px;
-            font-size: 18px;
+        .yoyo-button, .love-button {
+            width: 160px;
+            height: 50px;
+            background: linear-gradient(135deg, #FFF9C4, #ffffff);
+            border: none;
+            border-radius: 10px;
+            color: #8B7500;
+            font-size: 14px;
             font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .yoyo-button:hover, .love-button:hover {
+            background: linear-gradient(135deg, #ffffff, #FFF9C4);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .options {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .options button {
+            padding: 10px;
+            font-size: 12px;
+            font-weight: 600;
             color: #8B7500;
             background: linear-gradient(135deg, #FFF9C4, #ffffff);
             border: none;
-            border-radius: 12px;
+            border-radius: 10px;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
         }
 
-        .buttons button:hover {
+        .options button:hover {
             background: linear-gradient(135deg, #ffffff, #FFF9C4);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }
 
-        .buttons button:active {
-            transform: scale(0.98);
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        @media (max-width: 600px) {
+            .logo {
+                width: 180px;
+            }
+            .yoyo-button, .love-button {
+                width: 140px;
+                height: 45px;
+                font-size: 12px;
+            }
+            .options {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>💛💛💛</h1>
-        <div class="buttons">
-            <button onclick="window.location.href='page1.html'">يوم العيد </button>
-            <button onclick="window.location.href='page2.html'">8-4</button>
-            <button onclick="window.location.href='page3.html'">15-4</button>
+        <div class="logo-container">
+            <img src="https://i.postimg.cc/mrCKFRDj/Picsart-25-02-27-01-08-31-902.png" alt="Logo" class="logo">
+            <div class="buttons">
+                <button class="yoyo-button" onclick="window.location.href='message.html'">دوسي هنا يا يويو</button>
+                <button class="love-button" onclick="window.location.href='love.html'">LOVE❤️</button>
+            </div>
+        </div>
+
+        <div class="options">
+            <button onclick="window.location.href='message1.html'">وعد بالبقاء دائمًا معًا</button>
+            <button onclick="window.location.href='message2.html'">أنت حياتي وروحي</button>
+            <button onclick="window.location.href='message3.html'">وصف المشاعر العميقة تجاه يارا</button>
+            <button onclick="window.location.href='message4.html'">كلام عن التقدير والامتنان ليارا</button>
+            <button onclick="window.location.href='message5.html'">كلمة واحدة: بحبك</button>
+            <button onclick="window.location.href='message6.html'">بحبك بكل اللغات والمشاعر</button>
+            <button onclick="window.location.href='message7.html'">مشاعري التي لا أستطيع وصفها لكِ</button>
+            <button onclick="window.location.href='message8.html'">يوم الفيلم والاعتراف بالحب</button>
+            <button onclick="window.location.href='message9.html'">قصة بيجاد ويارا: الحب يولد من الصدف</button>
+            <button onclick="window.location.href='message10.html'">الإحساس بالحب قبل المعرفة</button>
+            <button onclick="window.location.href='message11.html'">حب قوي وعشق كبير</button>
+            <button onclick="window.location.href='message12.html'">أنتِ حياتي كلها يا يويو</button>
+            <button onclick="window.location.href='message13.html'">سنة مختلفة بسبب وجودك</button>
+            <button onclick="window.location.href='message14.html'">لأجلك حتى في غيابي</button>
+            <button onclick="window.location.href='17-2.html'">17-2</button>
+            <button onclick="window.location.href='message2-24.html'">24-2</button>
+            <button onclick="window.location.href='28-2.html'">28-2</button>
+            <button onclick="window.location.href='1-4.html'">1-4</button>
+            <button onclick="window.location.href='8-4.html'">8-4</button>
+            <button onclick="window.location.href='15-4.html'">15-4</button>
         </div>
     </div>
 
