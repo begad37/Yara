@@ -33,9 +33,15 @@
 
         .container {
             width: 90%;
-            max-width: 600px;
+            max-width: 900px;
             padding: 20px;
             min-height: 100vh;
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn{
+            from{opacity:0;transform:translateY(20px);}
+            to{opacity:1;transform:translateY(0);}
         }
 
         .logo-container {
@@ -78,13 +84,15 @@
 
         .options {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
             gap: 10px;
             margin-top: 20px;
         }
 
         .options button {
-            padding: 10px;
+            padding: 12px;
+            min-height: 75px;
+            line-height: 1.6;
             font-size: 12px;
             font-weight: 600;
             color: #8B7500;
@@ -114,12 +122,25 @@
                 grid-template-columns: repeat(2, 1fr);
             }
         }
-    </style>
+    
+.hearts::before,.hearts::after{
+content:"❤️";
+position:fixed;
+font-size:28px;
+animation:float 8s linear infinite;
+}
+.hearts::before{left:10%;}
+.hearts::after{left:85%;animation-delay:4s;}
+@keyframes float{
+from{top:100%;opacity:1;}
+to{top:-10%;opacity:0;}
+}
+</style>
 </head>
-<body>
+<body><div class="hearts"></div>
 
     <div class="container">
-        <div class="logo-container">
+        <h1 style="margin-bottom:10px;">❤️ Yara ❤️</h1><p style="margin-bottom:25px;">كل لحظة وكل ذكرى هنا معمولة بحب</p><div class="logo-container">
             <img src="https://i.postimg.cc/mrCKFRDj/Picsart-25-02-27-01-08-31-902.png" alt="Logo" class="logo">
             <div class="buttons">
                 <button class="yoyo-button" onclick="window.location.href='message.html'">دوسي هنا يا يويو</button>
